@@ -15,11 +15,6 @@ var app = new Vue({
     },
     created: function(){
         this.loadTweets();
-        // this.deleteById();
-        // this.findTweetByAuthor();
-        // this.findTweetByWord();
-        // this.findTweetById();
-        //this.addTweet();
     },
     methods: {
         loadTweets() {
@@ -27,9 +22,6 @@ var app = new Vue({
                 .then((response) => {return response.json()})
                 .then((response) => {
                     this.tweets = response;
-                    // for (var tweet of this.tweets) {
-                    //     tweet.visible = true;
-                    // }
                 })
                 .catch(function(err){
                     console.log("err:", err);
@@ -37,18 +29,17 @@ var app = new Vue({
             
         },
          deleteById(){
-            //this.id = id; no deleteById(id)
              var url = 'http://localhost:3001/tweets/'+this.id;
                 this.$http.delete(url).then(response => {
-                    this.tweets=response.body;
+                    this.tweets = response;
                     console.log("eliminato!");
+                
                 })
                 .catch(function(err){
                     console.log("err:", err);
                 })
              },
         findTweetByAuthor(){
-            //this.Author = Author; findTweetByAuthor(Author)
             var url = 'http://localhost:3001/tweets?author='+this.Author;
             this.$http.get(url)
             .then(response => {
@@ -62,8 +53,7 @@ var app = new Vue({
 
        
            findTweetByWord() {
-            //this.word = word;
-            var url = 'http://localhost:3001/tweets/word='+this.word;
+            var url = 'http://localhost:3001/tweets?word='+this.word;
              this.$http.get(url)
             .then(response => {
                 this.forWord = response.body;
