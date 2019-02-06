@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <!-- <script src="node_modules/popper.js/dist/popper.js"></script> -->
+        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <link  rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    </head>
+    <body>
+        <div id='app'>
+
+            <h2>TWEETS</h2>
+        <ol>
+            <!-- v-if='tweet.visible' -->
+            <li v-for="tweet in tweets">
+                {{tweet}}
+            </li>
+        </ol>
+
+        <div class="row">
+                 <div class="col-sm">
+                    <p>AGGIUNGI TWEET</p>
+                     <input v-model="author" placeholder="author"> 
+                     <br>
+                    <input v-model="message" placeholder="message"> 
+                    <button v-on:click="addTweet">AGGIUNGO</button><br>
+                </div>
+                <div class="col-sm">
+                    <p>ELIMINA TWEET</p>
+                    <input v-model="id" placeholder="id"><br>
+                    <button v-on:click="deleteById">Elimina tweet</button>
+                    <ol>
+                        <li v-for="tweet in tweets">
+                            {{tweet}}
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-sm">
+                    <p>CERCA TWEET PER AUTORE</p>
+                    <input v-model="Author" placeholder="Author"><br>
+                    <button v-on:click="findTweetByAuthor">cerca tweet per autore</button>
+                    <ol>
+                        <li v-for="tweet in forAuthor">
+                            {{tweet}}
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-sm">
+                    <p>CERCA TWEET PER PAROLA</p>
+                    <input v-model="word" placeholder="word"><br>
+                    <button v-on:click="findTweetByWord">cerca tweet per parola</button>
+                    <ol>
+                        <li v-for="tweet in forWord">
+                            {{tweet}}
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-sm">
+                    <p>CERCA TWEET PER ID</p>
+                    <input v-model="Id" placeholder="Id"><br>
+                    <button v-on:click="findTweetById">cerca tweet per id</button>
+                    <ol>
+                        <li v-for="tweet in forId">
+                            {{tweet}}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        
+        	</div>
+        
+    </body>
+
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script src="./app.js"></script>
+</html>
