@@ -1,7 +1,6 @@
 <html>
     <head>
         <script src="node_modules/jquery/dist/jquery.js"></script>
-        <!-- <script src="node_modules/popper.js/dist/popper.js"></script> -->
         <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <link  rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
     </head>
@@ -10,7 +9,6 @@
 
             <h2>TWEETS</h2>
         <ol>
-            <!-- v-if='tweet.visible' -->
             <li v-for="tweet in tweets">
                 {{tweet}}
             </li>
@@ -22,17 +20,14 @@
                      <input v-model="author" placeholder="author"> 
                      <br>
                     <input v-model="message" placeholder="message"> 
-                    <button v-on:click="addTweet">AGGIUNGO</button><br>
+                    <button v-on:click="addTweet">aggiungo tweet</button>
+                    <button v-on:click="loadTweets">VEDO</button><br>
                 </div>
                 <div class="col-sm">
                     <p>ELIMINA TWEET</p>
                     <input v-model="id" placeholder="id"><br>
                     <button v-on:click="deleteById">Elimina tweet</button>
-                    <ol>
-                        <li v-for="tweet in tweets">
-                            {{tweet}}
-                        </li>
-                    </ol>
+                    <button v-on:click="loadTweets">VEDO</button><br>
                 </div>
                 <div class="col-sm">
                     <p>CERCA TWEET PER AUTORE</p>
